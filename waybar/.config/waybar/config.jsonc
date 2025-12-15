@@ -1,0 +1,158 @@
+{
+  "position": "bottom",
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "network",
+    "custom/vpn",
+    "cpu",
+    "memory",
+    "disk",
+    "pulseaudio",
+    "bluetooth",
+    "hyprland/language",
+    "tray",
+    "clock"
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}", //:{windows}
+    "window-rewrite-default": "",
+    // "window-rewrite": {
+    //   "class<firefox>": " 󰈹",
+    //   "title<.*youtube.*>": " 󰗃",
+    //   "class<alacritty|AlacrittyFirst>": " ",
+    //   "class<steam>": " 󰓓",
+    //   "code": " 󰨞",
+    //   "class<obsidian>": " 󱞁",
+    //   "title<.*whatsapp.*>": " 󰖣"
+    // }
+    "format-icons": {
+      "1": "󰈹",
+      "2": "",
+      "5": "󰓓",
+      "6": "󰨞",
+      "8": "󰖣",
+      "9": "󰗃",
+      "14": "󱞁",
+      "15": "󱋊"
+    },
+    "workspace-taskbar": {
+      // Enable the workspace taskbar. Default: false
+      "enable": true,
+
+      // If true, the active/focused window will have an 'active' class. Could cause higher CPU usage due to more frequent redraws. Default: false
+      "update-active-window": true,
+
+      // Format of the windows in the taskbar. Default: "{icon}". Allowed variables: {icon}, {title}
+      "format": "{icon}",
+
+      // Icon size in pixels. Default: 16
+      "icon-size": 24,
+
+      // Either the name of an installed icon theme or an array of themes (ordered by priority). If not set, the default icon theme is used.
+      "icon-theme": "",
+
+      // Orientation of the taskbar ("horizontal" or "vertical"). Default: "horizontal".
+      "orientation": "horizontal",
+
+      // List of regexes. A window will NOT be shown if its window class or title match one or more items. Default: []
+      "ignore-list": [],
+
+      // Command to run when a window is clicked. Default: "" (switch to the workspace as usual). Allowed variables: {address}, {button}
+      "on-click-window": ""
+    }
+  },
+  "hyprland/submap": {
+    "format": "{} ",
+    "max-length": 8,
+    "tooltip": false
+  },
+  "bluetooth": {
+    "format": "",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "hyprland/language": {
+    "format": "{}  ",
+    "format-en": "en",
+    "format-de": "de"
+  },
+  "tray": {
+    "show-passive-items": "true",
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%A, %B %d, %Y (%R)}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "month",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "left",
+      "on-scroll"     : 1,
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions":  {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "network": {
+    "format": "{ipaddr}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "datnet:{ipaddr} {bandwidthUpBytes} 󰕒 {bandwidthDownBytes} 󰇚 ",
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr} gateway: {gwaddr} {bandwidthUpBytes} 󰕒 {bandwidthDownBytes} 󰇚",
+    "tooltip-format-disconnected": "-",
+    "format-disconnected": "--", //An empty format will hide the module.
+    "max-length": 180,
+    "on-click": "sudo wg-quick down wg1",
+    "on-click-right": "sudo wg-quick up wg1"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+        "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1": ", ",
+        "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": " ",
+        "alsa_output.pci-0000_11_00.6.analog-surround-21": " ",
+        "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+  },
+  "disk": {
+    "format": "{free}/{used}  "
+  },
+  "custom/vpn": {
+    "exec": "~/.scripts/waybar_vpn",
+    "interval": 5,
+    "tooltip": false
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "{}%  "
+  },
+  "memory": {
+    "interval": 30,
+    "format": "{used:0.1f}/{total:0.1f}GB  "
+  }
+
+}

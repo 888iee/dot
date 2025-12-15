@@ -1,0 +1,34 @@
+#!/bin/bash
+
+get_sink_id() {
+    case "$1" in
+        headphone)
+            pactl list sinks short | grep analog-surround | awk '{print $1}'
+            ;;
+        speaker)
+            pactl list sinks short | grep hdmi-stereo | awk '{print $1}'
+            ;;
+        *)
+            echo "Invalid argument. Use: headphone or speaker"
+            exit 1
+            ;;
+    esac
+}
+
+SINK_ID=$(get_sink_id "$1")
+
+if [ -n "$SINK_ID" ]; then
+    # Set default sink
+    pactl set-default-sink "$SINK_ID"
+
+    # Move all sink inputs to the new default sink
+    for INPUT in $(pactl list sink-inputs short | awk '{print $1}'); do
+        pactl move-sink-input "$INPUT" "$SINK_ID"
+    done
+
+    notify-send "Audio switched to $1"
+else
+    notify-send "No matching sink found for: $1"
+    exit 1
+fi
+

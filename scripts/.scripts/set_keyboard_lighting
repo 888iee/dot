@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Get the current hour in 24-hour format
+current_hour=$(date +%H)
+
+# Set the keyboard lighting based on the time
+if [ "$current_hour" -ge 16 ] || [ "$current_hour" -lt 10 ]; then
+    # After 8 PM or before 10 AM
+    razer-cli -d "Razer BlackWidow V3 Pro (Wireless)" -e static -c 00ffff -b 10
+else
+    # Between 10 AM and 8 PM
+    razer-cli -d "Razer BlackWidow V3 Pro (Wireless)" -b 0
+fi

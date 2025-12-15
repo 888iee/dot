@@ -1,0 +1,10 @@
+#!/bin/bash
+
+VPN_DIR="/proc/sys/net/ipv4/conf/wg1"
+
+if [ -d "$VPN_DIR" ]; then
+    echo "%{T2}"  # Locked icon (Font Awesome)
+else
+    echo ""  # Open lock icon (Unicode)
+fi
+

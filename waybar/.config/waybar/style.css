@@ -1,0 +1,73 @@
+@define-color bgcolor #000B1e;
+@define-color textcol #00c7b6;
+@define-color focuscol #c79c00;
+@define-color testcolor #23284a;
+@define-color bgcolor-transparent rgba(0, 11, 30, 0.1); /* 33 is ~20% opacity */ 
+@define-color bgcolor-light-transparent rgba(0, 11, 30, 0.68); /* 33 is ~20% opacity */ 
+
+* {
+  font-family: "FiraCodeMonoNerdFont";
+  border: none;
+  border-radius: 10;
+  font-size: 15px;
+  min-height: 10px;
+  /* margin-bottom: 1px; */
+}
+
+window#waybar {
+  background-color: @bgcolor-transparent;
+  background: transparent;
+    color: @textcol;
+}
+
+#workspaces button.active {
+  color: @focuscol;
+  background: rgba(0, 11, 30, 0.8);
+  /* border-radius: 12px; */
+}
+
+#workspaces button.urgent {
+  color: red;
+}
+
+/* Mode section */
+#mode {
+    background: white;
+}
+#network,
+#custom-vpn,
+#cpu,
+#memory,
+#disk,
+#pulseaudio,
+#bluetooth,
+#language, /* hyprland/language uses ID "language" */
+#tray,
+#clock, 
+#window,
+#submap
+{
+  background-color: @bgcolor;
+  margin-left: 4px;
+  padding: 6px;
+  border-radius: 10px;
+  border-bottom: 2px @textcol solid;
+}
+
+#window {
+  background-color: @bgcolor-light-transparent;
+}
+#submap {
+  color: @focuscol;
+  /* margin-left: 4px; */
+}
+/* Workspaces */
+#workspaces button {
+    /* padding: 0 7px 0 4px; */
+  padding-right: 16px;
+  background: @bgcolor-light-transparent;
+  color: @textcol;
+  border-bottom: 2px @textcol solid;
+    /* border-bottom: 3px solid transparent; */
+    /* border: none; */
+}

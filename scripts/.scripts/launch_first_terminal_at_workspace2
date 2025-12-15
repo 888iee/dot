@@ -1,0 +1,10 @@
+#!/bin/bash
+
+count=$(hyprctl clients -j | jq '[.[] | select(.class=="AlacrittyFirst")] | length')
+
+if [ "$count" -eq 0 ]; then
+    alacritty --class AlacrittyFirst &
+else
+    alacritty &
+fi
+

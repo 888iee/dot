@@ -1,0 +1,19 @@
+##!/bin/bash
+SINK="alsa_output.pci-0000_11_00.6.analog-stereo"
+
+CURRENT_PORT=$(pactl list sinks | awk -v sink="$SINK" '
+  $0 ~ "Name: "sink { in_sink=1 }
+  in_sink && /Aktiver Port:/ {
+    print $3
+    exit
+  }')
+
+notify-send "Current port: $CURRENT_PORT"
+
+if [[ "$CURRENT_PORT" == "analog-output-lineout" ]]; then
+  notify-send "Switching to headphones"
+  pactl set-sink-port "$SINK" analog-output-headphones
+else
+  notify-send "Switching to lineout"
+  pactl set-sink-port "$SINK" analog-output-lineout
+fi

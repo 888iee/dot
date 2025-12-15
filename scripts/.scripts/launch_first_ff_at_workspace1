@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Count current Firefox windows
+count=$(hyprctl clients -j | jq '[.[] | select(.class=="firefox")] | length')
+
+if [ "$count" -eq 0 ]; then
+    # First window: launch on workspace 1
+    hyprctl dispatch movetoworkspace workspace 1
+    firefox &
+    # hyprctl dispatch cyclenext
+    # hyprctl dispatch movetoworkspace 1
+else
+  echo hi > ~/file
+  firefox &
+fi
+

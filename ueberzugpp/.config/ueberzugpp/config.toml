@@ -1,0 +1,9 @@
+[general]
+silent = true
+
+[preview]
+transition = "none"
+[layer]
+silent = true
+transition = "none"
+

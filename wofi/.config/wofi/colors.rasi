@@ -1,0 +1,5 @@
+* {
+  background: #000b1e;
+  foreground: #00c7b6;
+  transparent-strong: rgba(0, 0, 0, 0.3);
+}

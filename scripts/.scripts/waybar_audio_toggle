@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Get current default sink
+CURRENT_SINK=$(pactl get-default-sink)
+
+# Match short name to detect current sink type
+if echo "$CURRENT_SINK" | grep -q "analog-surround"; then
+    NEW_TARGET="speaker"
+else
+    NEW_TARGET="headphone"
+fi
+
+# Call your main audio switcher
+~/.scripts/waybar_audio "$NEW_TARGET"
+

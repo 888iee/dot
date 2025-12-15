@@ -1,0 +1,5 @@
+#!/bin/bash
+
+
+hyprctl keyword monitor "HDMI-A-2, 1920x1080@60, 0x0, 1"
+hyprctl keyword monitor "DP-6, 2560x1440@144, 1920x0, 1"

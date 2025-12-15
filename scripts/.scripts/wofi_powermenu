@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Power menu entries
+entries=$(cat <<EOF
+  Shutdown
+  Reboot to Windows
+  Lock Session
+  Standby
+  Boot to Bios
+  Reboot
+  Logout
+EOF
+)
+
+# Show menu
+selected=$(echo "$entries" | wofi --dmenu --cache-file /dev/null --prompt " Power")
+
+case "$selected" in
+    *Shutdown)
+        poweroff
+        ;;
+    *Reboot" to Windows")
+        systemctl reboot --boot-loader-entry=windows.conf
+        ;;
+    *Reboot)
+        systemctl reboot
+        ;;
+    *Standby)
+        systemctl suspend
+        ;;
+    *Logout)
+        hyprctl dispatch exit
+        ;;
+    *Lock" Session")
+        loginctl lock-session
+        ;;
+    *Bios)
+        systemctl reboot --firmware-setup
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+

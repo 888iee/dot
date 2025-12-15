@@ -1,0 +1,32 @@
+# Cyber dat
+
+# Default colors
+[colors.primary]
+background = '#000b1e'
+foreground = '#00c7b6'
+
+[colors.cursor]
+text   = '#c79c00'
+cursor = '#c6c30a'
+
+# Normal colors
+[colors.normal]
+black   = '#454441'
+red     = '#ff0000'
+green   = '#51d300'
+yellow  = '#f57800'
+blue    = '#c200e0'
+magenta = '#711c91'
+cyan    = '#c6c30a'
+white   = '#d7d7d5'
+
+# Bright colors
+[colors.bright]
+black   = '#454441'
+red     = '#ff0000'
+green   = '#51d300'
+yellow  = '#f57800'
+blue    = '#00ff00'
+magenta = '#711c91'
+cyan    = '#c6c30a'
+white   = '#d7d7d5'

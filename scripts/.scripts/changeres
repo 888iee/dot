@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ $1 == "stretch" ]]; then
+  nvidia-settings -a "CurrentMetaMode=DP-4: 2560x1440 { ViewPortIn=1920x1440, ViewPortOut=2560x1440+0+0, ForceCompositionPipeline=On }, HDMI-0: 1920x1080"
+
+else
+  nvidia-settings -a "CurrentMetaMode=DP-4: nvidia-auto-select { ViewPortIn=2560x1440_240, ViewPortOut=2560x1440+0+0, ForceCompositionPipeline=On }, HDMI-0: 1920x1080"
+fi
+
+
+xrandr --output DP-4 --primary --mode 2560x1440 --rate 144 --output HDMI-0 --mode 1920x1080 --rate 144 --left-of DP-4

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+adb shell pm grant net.dinglisch.android.taskerm android.permission.WRITE_SECURE_SETTINGS
+adb shell pm grant net.dinglisch.android.taskerm android.permission.READ_LOGS
+adb shell am force-stop net.dinglisch.android.taskerm
+adb shell pm grant net.dinglisch.android.taskerm android.permission.WRITE_SECURE_SETTINGS
+adb shell appops set net.dinglisch.android.taskerm SYSTEM_ALERT_WINDOW allow
+adb shell appops set com.joaomgcd.autoinput PROJECT_MEDIA allow

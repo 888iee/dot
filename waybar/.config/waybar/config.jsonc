@@ -9,12 +9,13 @@
     "network",
     "custom/vpn",
     "cpu",
-    "memory",
-    "disk",
+    // "memory",
+    // "disk",
     "pulseaudio",
     "bluetooth",
     "hyprland/language",
     "tray",
+    "battery",
     "clock"
   ],
   "hyprland/workspaces": {
@@ -34,8 +35,8 @@
       "2": "",
       "5": "󰓓",
       "6": "󰨞",
-      "8": "󰖣",
-      "9": "󰗃",
+      "8": "🗨",
+      "9": " ✉",
       "14": "󱞁",
       "15": "󱋊"
     },
@@ -72,8 +73,8 @@
   },
   "bluetooth": {
     "format": "",
-    "format-connected": " {device_alias}",
-    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "format-connected": "",
+    "format-connected-battery": "{device_battery_percentage}% ",
     // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
@@ -114,7 +115,7 @@
   },
   "network": {
     "format": "{ipaddr}",
-    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-wifi": "{essid} ({signalStrength}%)  " ,
     "format-ethernet": "datnet:{ipaddr} {bandwidthUpBytes} 󰕒 {bandwidthDownBytes} 󰇚 ",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
@@ -127,7 +128,8 @@
   },
   "pulseaudio": {
     "format": "{volume}% {icon}",
-    "format-bluetooth": "{icon} {volume}%",
+    // "format-bluetooth": " {icon}  {volume}% ",
+    "format-bluetooth": "{volume}%  {icon} ",
     "format-muted": "",
     "format-icons": {
         "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1": ", ",
@@ -153,6 +155,31 @@
   "memory": {
     "interval": 30,
     "format": "{used:0.1f}/{total:0.1f}GB  "
-  }
-
+  },
+"battery": {
+		// "bat":
+		// "adapter":
+		// "design-capacity":
+		// "full-at":
+		// "interval":
+		"states": {
+			"warning": 20,
+			"critical": 10
+		},
+		"format": "{capacity}% {icon}",
+		"format-time": "{H}h {M}min",
+		"format-icons": [
+			"󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+		],
+		"format-charging": "󰉁 {capacity}%",
+		"min-length": 7,
+		"max-length": 7,
+		"tooltip-format": "<b>Discharging</b>: {time}",
+		"tooltip-format-charging": "<b>Charging</b>: {time}",
+		"events": {
+			"on-discharging-warning": "notify-send 'Battery Low (20%)' -u critical -i 'battery-020' -r 1525",
+			"on-discharging-critical": "notify-send 'Battery Critical (10%)' -u critical -i 'battery-010' -r 1525",
+			"on-charging-100": "notify-send 'Battery Full (100%)' -i 'battery-100-charged'"
+		}
+	}
 }

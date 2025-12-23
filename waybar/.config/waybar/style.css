@@ -42,9 +42,9 @@ window#waybar {
 #pulseaudio,
 #bluetooth,
 #language, /* hyprland/language uses ID "language" */
-#tray,
 #clock, 
 #window,
+#battery,
 #submap
 {
   background-color: @bgcolor;
@@ -52,6 +52,14 @@ window#waybar {
   padding: 6px;
   border-radius: 10px;
   border-bottom: 2px @textcol solid;
+}
+
+#tray {
+  background-color: @bgcolor;
+  /* margin-left: 4px; */
+  /* padding: 6px; */
+  /* border-radius: 10px; */
+  /* border-bottom: 2px @textcol solid; */
 }
 
 #window {

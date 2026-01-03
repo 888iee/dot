@@ -116,7 +116,7 @@
   "network": {
     "format": "{ipaddr}",
     "format-wifi": "{essid} ({signalStrength}%)  " ,
-    "format-ethernet": "datnet:{ipaddr} {bandwidthUpBytes} 󰕒 {bandwidthDownBytes} 󰇚 ",
+    "format-ethernet": "{essid}:{ipaddr} {bandwidthUpBytes} 󰕒 {bandwidthDownBytes} 󰇚 ",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
     "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr} gateway: {gwaddr} {bandwidthUpBytes} 󰕒 {bandwidthDownBytes} 󰇚",

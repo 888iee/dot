@@ -10,7 +10,7 @@
     "custom/vpn",
     "cpu",
     // "memory",
-    // "disk",
+    "disk",
     "pulseaudio",
     "bluetooth",
     "hyprland/language",
@@ -33,10 +33,9 @@
     "format-icons": {
       "1": "󰈹",
       "2": "",
-      "5": "󰓓",
       "6": "󰨞",
-      "8": "🗨",
-      "9": " ✉",
+      "9": "🗨",
+      "10": " ✉",
       "14": "󱞁",
       "15": "󱋊"
     },
@@ -100,11 +99,11 @@
       "weeks-pos"     : "left",
       "on-scroll"     : 1,
       "format": {
-        "months":     "<span color='#ffead3'><b>{}</b></span>",
-        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+        "months":     "<span color='#00c7b6'><b>{}</b></span>",
+        "days":       "<span color='#00c7b6'><b>{}</b></span>",
+        "weeks":      "<span color='#00c7b6'><b>W{}</b></span>",
+        "weekdays":   "<span color='#00c7b6'><b>{}</b></span>",
+        "today":      "<span color='#c79c00'><b><u>{}</u></b></span>"
       }
     },
     "actions":  {

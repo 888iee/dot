@@ -45,6 +45,7 @@ window#waybar {
 #clock, 
 #window,
 #battery,
+#tray,
 #submap
 {
   background-color: @bgcolor;
@@ -54,15 +55,7 @@ window#waybar {
   border-bottom: 2px @textcol solid;
 }
 
-#tray {
-  background-color: @bgcolor;
-  /* margin-left: 4px; */
-  /* padding: 6px; */
-  /* border-radius: 10px; */
-  /* border-bottom: 2px @textcol solid; */
-}
-
-#window {
+#window, tooltip {
   background-color: @bgcolor-light-transparent;
 }
 #submap {

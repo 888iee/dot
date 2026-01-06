@@ -58,6 +58,9 @@ window#waybar {
 #window, tooltip {
   background-color: @bgcolor-light-transparent;
 }
+tooltip label {
+  color: @textcol;
+}
 #submap {
   color: @focuscol;
   /* margin-left: 4px; */

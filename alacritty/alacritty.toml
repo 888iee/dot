@@ -1,8 +1,8 @@
 general.import = [
 #	"~/.config/alacritty/themes/themes/monokai.toml"
-	"~/.config/alacritty/themes/themes/cyber_dat.toml"
+	# "~/.config/alacritty/themes/themes/cyber_dat.toml"
 #	"~/.config/alacritty/themes/themes/everforest_dark2.toml"
-#	"~/.config/alacritty/themes/themes/tokyo_night_enhanced.toml"
+"~/.config/alacritty/themes/themes/tokyo_night_enhanced.toml"
 ]
 
 [env]
